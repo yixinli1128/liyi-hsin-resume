@@ -26,8 +26,18 @@
       .hero .meta { margin:10px 0 0; color:#68729b; }
       .summary { max-width:760px; margin:18px 0 0; padding-top:18px; border-top:1px solid rgba(255,255,255,.6); color:#59628f; font-size:14px; line-height:1.8; }
       .cebu-carousel-wrap { width:100%; height:560px; position:relative; margin-top:8px; }
+      /* Keep the photo story visible in every browser, including file:// previews
+         that cannot initialise WebGL. */
+      #cebu-carousel { display:none; }
+      .cebu-gallery { display:grid; grid-template-columns:repeat(12,1fr); gap:14px; margin-top:8px; }
+      .cebu-gallery figure { display:flex; flex-direction:column; min-width:0; margin:0; overflow:hidden; border:1px solid rgba(255,255,255,.72); border-radius:18px; background:rgba(238,242,255,.44); box-shadow:0 14px 28px rgba(72,81,135,.12), inset 0 1px 0 rgba(255,255,255,.7); backdrop-filter:blur(10px); transition:transform .28s ease, box-shadow .28s ease; }
+      .cebu-gallery figure:nth-child(1), .cebu-gallery figure:nth-child(8) { grid-column:span 4; }
+      .cebu-gallery figure:nth-child(2), .cebu-gallery figure:nth-child(3), .cebu-gallery figure:nth-child(4), .cebu-gallery figure:nth-child(5), .cebu-gallery figure:nth-child(6), .cebu-gallery figure:nth-child(7), .cebu-gallery figure:nth-child(9), .cebu-gallery figure:nth-child(10), .cebu-gallery figure:nth-child(11) { grid-column:span 4; }
+      .cebu-gallery figure:hover { transform:translateY(-7px) rotate(-.35deg); box-shadow:0 21px 36px rgba(72,81,135,.2), inset 0 1px 0 rgba(255,255,255,.8); }
+      .cebu-gallery img { display:block; width:100%; height:auto; max-height:430px; object-fit:contain; background:rgba(255,255,255,.2); }
+      .cebu-gallery figcaption { padding:10px 13px 12px; color:#5963a1; font:11px "DM Mono",monospace; letter-spacing:.06em; }
       @media (prefers-reduced-motion:reduce) { *,*:before,*:after { animation-duration:.01ms !important; animation-iteration-count:1 !important; } }
-      @media (max-width:700px) { .page { padding:28px 17px; } .hero { padding:24px; } .cebu-carousel-wrap { height:470px; } }
+      @media (max-width:700px) { .page { padding:28px 17px; } .hero { padding:24px; } .cebu-carousel-wrap { height:470px; } .cebu-gallery { grid-template-columns:repeat(2,1fr); gap:10px; } .cebu-gallery figure, .cebu-gallery figure:nth-child(n) { grid-column:span 1; } .cebu-gallery img { max-height:300px; } }
     </style>
     <link rel="stylesheet" href="assets/cebu-flex.bundle.css" />
     <script defer src="assets/cebu-flex.bundle.js"></script>
@@ -50,7 +60,20 @@
         <p class="meta">IMS Academy Cebu · One-month English immersion · 2023.06.25 — 2023.07.22</p>
         <p class="summary">於 IMS Academy Cebu 進行一個月全英文沉浸式學習。透過與不同國籍、年齡層同學的交流，提升英文溝通與跨文化適應能力；完善的教學與生活支援，也讓我能專注於學習與探索在地生活。</p>
       </header>
-      <div class="cebu-carousel-wrap"><div id="cebu-carousel"></div></div>
+      <div class="cebu-carousel-wrap" hidden><div id="cebu-carousel"></div></div>
+      <section class="cebu-gallery" aria-label="Cebu Study Journey 照片">
+        <figure><img src="assets/cebu/cebu-01.jpg" alt="宿霧遊學照片 01" /><figcaption>CEBU MOMENT 01</figcaption></figure>
+        <figure><img src="assets/cebu/cebu-02.jpg" alt="宿霧遊學照片 02" /><figcaption>CEBU MOMENT 02</figcaption></figure>
+        <figure><img src="assets/cebu/cebu-03.jpg" alt="宿霧遊學照片 03" /><figcaption>CEBU MOMENT 03</figcaption></figure>
+        <figure><img src="assets/cebu/cebu-04.jpg" alt="宿霧遊學照片 04" /><figcaption>CEBU MOMENT 04</figcaption></figure>
+        <figure><img src="assets/cebu/cebu-05.jpg" alt="宿霧遊學照片 05" /><figcaption>CEBU MOMENT 05</figcaption></figure>
+        <figure><img src="assets/cebu/cebu-06.jpg" alt="宿霧遊學照片 06" /><figcaption>CEBU MOMENT 06</figcaption></figure>
+        <figure><img src="assets/cebu/cebu-07.jpg" alt="宿霧遊學照片 07" /><figcaption>CEBU MOMENT 07</figcaption></figure>
+        <figure><img src="assets/cebu/cebu-08.jpg" alt="宿霧遊學照片 08" /><figcaption>CEBU MOMENT 08</figcaption></figure>
+        <figure><img src="assets/cebu/cebu-09.jpg" alt="宿霧遊學照片 09" /><figcaption>CEBU MOMENT 09</figcaption></figure>
+        <figure><img src="assets/cebu/cebu-10.jpg" alt="宿霧遊學照片 10" /><figcaption>CEBU MOMENT 10</figcaption></figure>
+        <figure><img src="assets/cebu/cebu-11.jpg" alt="宿霧遊學照片 11" /><figcaption>CEBU MOMENT 11</figcaption></figure>
+      </section>
     </main>
   </body>
 </html>
