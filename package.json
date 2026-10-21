@@ -1,0 +1,16 @@
+{
+  "name": "liyi-hsin-resume",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build:cebu": "esbuild cebu-app.jsx --bundle --format=iife --outfile=assets/cebu-flex.bundle.js --loader:.css=css"
+  },
+  "dependencies": {
+    "ogl": "^1.0.11",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "esbuild": "^0.25.0"
+  }
+}
