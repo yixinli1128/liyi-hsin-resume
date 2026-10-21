@@ -26926,6 +26926,7 @@ void main() {
     const [active, setActive] = (0, import_react.useState)(0);
     const [revealed, setRevealed] = (0, import_react.useState)(false);
     const [focusOpen, setFocusOpen] = (0, import_react.useState)(false);
+    const [fallback, setFallback] = (0, import_react.useState)(false);
     const base = BEND_PRESETS[preset] || BEND_PRESETS.liquid;
     const pick = (value, key) => value === void 0 || value === null ? base[key] : value;
     const list = items2 && items2.length ? items2 : DEFAULT_ITEMS;
@@ -26973,6 +26974,7 @@ void main() {
       const gl = renderer.gl;
       if (!renderer.isWebgl2) {
         gl.getExtension("WEBGL_lose_context")?.loseContext();
+        setFallback(true);
         return void 0;
       }
       gl.clearColor(0, 0, 0, 0);
@@ -27795,6 +27797,9 @@ void main() {
     }, []);
     const current = list[active] || list[0];
     const label = current ? current.title || current.alt || `Image ${active + 1}` : "";
+    if (fallback) {
+      return /* @__PURE__ */ React.createElement("div", { className: `flex-carousel flex-carousel--fallback ${className}`.trim(), role: "region", "aria-label": "Cebu Study Journey \u7167\u7247\u8F2A\u64AD" }, /* @__PURE__ */ React.createElement("div", { className: "flex-carousel__fallback-track" }, list.map((item, index) => /* @__PURE__ */ React.createElement("figure", { className: "flex-carousel__fallback-card", key: item.src }, /* @__PURE__ */ React.createElement("img", { src: item.src, alt: item.alt || item.title || "" }), /* @__PURE__ */ React.createElement("figcaption", null, item.title || `Photo ${index + 1}`)))));
+    }
     return /* @__PURE__ */ React.createElement(
       "div",
       {

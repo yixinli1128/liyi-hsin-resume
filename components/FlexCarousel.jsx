@@ -293,6 +293,7 @@ const FlexCarousel = ({
   const [active, setActive] = useState(0);
   const [revealed, setRevealed] = useState(false);
   const [focusOpen, setFocusOpen] = useState(false);
+  const [fallback, setFallback] = useState(false);
 
   const base = BEND_PRESETS[preset] || BEND_PRESETS.liquid;
   const pick = (value, key) => (value === undefined || value === null ? base[key] : value);
@@ -346,6 +347,7 @@ const FlexCarousel = ({
     const gl = renderer.gl;
     if (!renderer.isWebgl2) {
       gl.getExtension('WEBGL_lose_context')?.loseContext();
+      setFallback(true);
       return undefined;
     }
     gl.clearColor(0, 0, 0, 0);
@@ -1237,6 +1239,21 @@ const FlexCarousel = ({
 
   const current = list[active] || list[0];
   const label = current ? current.title || current.alt || `Image ${active + 1}` : '';
+
+  if (fallback) {
+    return (
+      <div className={`flex-carousel flex-carousel--fallback ${className}`.trim()} role="region" aria-label="Cebu Study Journey 照片輪播">
+        <div className="flex-carousel__fallback-track">
+          {list.map((item, index) => (
+            <figure className="flex-carousel__fallback-card" key={item.src}>
+              <img src={item.src} alt={item.alt || item.title || ''} />
+              <figcaption>{item.title || `Photo ${index + 1}`}</figcaption>
+            </figure>
+          ))}
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div

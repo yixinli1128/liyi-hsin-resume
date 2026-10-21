@@ -140,3 +140,46 @@
     transition: none;
   }
 }
+
+.flex-carousel--fallback {
+  overflow-x: auto;
+  cursor: default;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(98, 103, 169, 0.5) transparent;
+}
+
+.flex-carousel__fallback-track {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: max-content;
+  height: 100%;
+  padding: 24px max(24px, calc((100% - 280px) / 2));
+}
+
+.flex-carousel__fallback-card {
+  display: flex;
+  flex: 0 0 auto;
+  flex-direction: column;
+  width: min(54vw, 390px);
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+  border-radius: 16px;
+  background: rgba(82, 91, 151, 0.2);
+}
+
+.flex-carousel__fallback-card img {
+  display: block;
+  min-width: 0;
+  width: 100%;
+  height: calc(100% - 42px);
+  object-fit: contain;
+}
+
+.flex-carousel__fallback-card figcaption {
+  padding: 11px 13px;
+  color: #4f5a98;
+  background: rgba(246, 248, 255, 0.78);
+  font-size: 12px;
+}
