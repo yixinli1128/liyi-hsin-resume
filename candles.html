@@ -24,17 +24,14 @@
       .eyebrow { margin:0 0 10px; color:var(--violet); font:11px "DM Mono", monospace; letter-spacing:.14em; }
       .hero h1 { margin:0; font-size:38px; }
       .hero p:last-child { margin:10px 0 0; color:#69719a; }
-      .grid { column-count:3; column-gap:12px; }
-      .card { position:relative; break-inside:avoid; margin:0 0 12px; }
-      .card img { display:block; width:100%; height:auto; border-radius:10px; }
-      .card--three-four img { aspect-ratio:3 / 4; object-fit:cover; }
-      .card figcaption { position:absolute; right:8px; bottom:7px; padding:3px 7px; color:#fff; background:rgba(77,81,139,.66); border:1px solid rgba(255,255,255,.33); border-radius:4px; font:10px "DM Mono", monospace; backdrop-filter:blur(5px); }
+      .wall-tip { margin:12px 0 0; color:#69719a; font:11px "DM Mono", monospace; letter-spacing:.04em; }
       @media (max-width:700px) {
         .page { padding:28px 17px; }
         .hero { padding:24px; }
-        .grid { column-count:2; }
       }
     </style>
+    <link rel="stylesheet" href="assets/drift-wall.css" />
+    <script defer src="assets/drift-wall.js"></script>
   </head>
   <body>
     <div class="atmosphere" aria-hidden="true">
@@ -53,22 +50,22 @@
         <h1>蠟燭作品</h1>
         <p>KCCA Aroma Candle Master · 手作蠟燭與香氛創作</p>
       </header>
-      <div class="grid">
-        <figure class="card card--three-four"><img src="assets/candles/candle-01.jpg" alt="手作蠟燭作品" /><figcaption>01</figcaption></figure>
-        <figure class="card"><img src="assets/candles/candle-02.jpg" alt="手作蠟燭作品" /><figcaption>02</figcaption></figure>
-        <figure class="card"><img src="assets/candles/candle-03.jpg" alt="手作蠟燭作品" /><figcaption>03</figcaption></figure>
-        <figure class="card card--three-four"><img src="assets/candles/candle-04.jpg" alt="手作蠟燭作品" /><figcaption>04</figcaption></figure>
-        <figure class="card"><img src="assets/candles/candle-05.jpg" alt="手作蠟燭作品" /><figcaption>05</figcaption></figure>
-        <figure class="card"><img src="assets/candles/candle-06.jpg" alt="手作蠟燭作品" /><figcaption>06</figcaption></figure>
-        <figure class="card"><img src="assets/candles/candle-07.jpg" alt="手作蠟燭作品" /><figcaption>07</figcaption></figure>
-        <figure class="card"><img src="assets/candles/candle-08.jpg" alt="手作蠟燭作品" /><figcaption>08</figcaption></figure>
-        <figure class="card"><img src="assets/candles/candle-09.jpg" alt="手作蠟燭作品" /><figcaption>09</figcaption></figure>
-        <figure class="card"><img src="assets/candles/candle-10.jpg" alt="手作蠟燭作品" /><figcaption>10</figcaption></figure>
-        <figure class="card"><img src="assets/candles/candle-11.jpg" alt="手作蠟燭作品" /><figcaption>11</figcaption></figure>
-        <figure class="card"><img src="assets/candles/candle-12.jpg" alt="手作蠟燭作品" /><figcaption>12</figcaption></figure>
-        <figure class="card"><img src="assets/candles/candle-13.jpg" alt="手作蠟燭作品" /><figcaption>13</figcaption></figure>
-        <figure class="card"><img src="assets/candles/candle-14.jpg" alt="手作蠟燭作品" /><figcaption>14</figcaption></figure>
-      </div>
+      <p class="wall-tip">MOVE TO EXPLORE · HOVER TO LIFT</p>
+      <div class="drift-shell"><div id="candle-wall" class="drift-wall"></div></div>
     </main>
   </body>
+  <script>
+    window.addEventListener('DOMContentLoaded', () => {
+      const items = Array.from({ length: 14 }, (_, index) => ({
+        image: `assets/candles/candle-${String(index + 1).padStart(2, '0')}.jpg`,
+        title: `手作蠟燭作品 ${String(index + 1).padStart(2, '0')}`
+      }));
+      new DriftWall(document.querySelector('#candle-wall'), {
+        items, columns: 5, tileWidth: 200, tileHeight: 140, gap: 16,
+        tilt: 12, turn: -14, perspective: 1150, depth: 120, speed: 42,
+        direction: 'up', variance: .45, parallax: .6, lift: 108,
+        fade: 0, dim: 1, overlayColor: '#060010'
+      });
+    });
+  </script>
 </html>
