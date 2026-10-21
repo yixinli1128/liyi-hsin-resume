@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>蠟燭作品｜李易馨</title>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Noto+Sans+TC:wght@400;500;600;700&display=swap');
+      :root { --ink:#474b73; --violet:#6267a9; --lav:#e4e8f6; --line:rgba(255,255,255,.7); }
+      * { box-sizing:border-box; }
+      body { position:relative; overflow-x:hidden; margin:0; background:radial-gradient(circle at 90% 4%,rgba(244,239,255,.9),transparent 27rem),radial-gradient(circle at 6% 72%,rgba(180,219,244,.57),transparent 28rem),linear-gradient(145deg,#cbd0e9,#b9c1e2); color:var(--ink); font-family:"Noto Sans TC", sans-serif; }
+      body:before { content:""; position:fixed; inset:0; z-index:0; pointer-events:none; opacity:.34; background-image:linear-gradient(rgba(255,255,255,.19) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.16) 1px,transparent 1px); background-size:34px 34px; }
+      .atmosphere { position:fixed; inset:0; z-index:0; overflow:hidden; pointer-events:none; }
+      .glow { position:absolute; border-radius:50%; filter:blur(9px); mix-blend-mode:screen; }
+      .glow--one { top:14%; left:-105px; width:310px; height:310px; background:radial-gradient(circle,rgba(233,226,255,.82),transparent 68%); animation:drift-one 14s ease-in-out infinite alternate; }
+      .glow--two { right:-145px; bottom:11%; width:390px; height:390px; background:radial-gradient(circle,rgba(176,220,246,.74),transparent 68%); animation:drift-two 17s ease-in-out infinite alternate; }
+      .star { position:absolute; left:var(--x); top:var(--y); color:#fff; font:var(--size)/1 serif; opacity:.3; text-shadow:0 0 15px rgba(255,255,255,.95),0 0 26px rgba(174,201,244,.9); animation:twinkle var(--duration) ease-in-out var(--delay) infinite; }
+      @keyframes drift-one { to { transform:translate(72px,50px) scale(1.13); } }
+      @keyframes drift-two { to { transform:translate(-72px,-55px) scale(.9); } }
+      @keyframes twinkle { 0%,100% { opacity:.12; transform:scale(.72); } 50% { opacity:.76; transform:translateY(-11px) scale(1.14); } }
+      .page { position:relative; z-index:1; max-width:1060px; margin:auto; padding:56px 34px; }
+      .back { display:inline-flex; padding:7px 11px; color:#5963a1; border:1px solid rgba(255,255,255,.72); border-radius:999px; background:rgba(244,246,255,.56); font:12px "DM Mono", monospace; text-decoration:none; backdrop-filter:blur(9px); }
+      .hero { margin:22px 0 28px; padding:32px; border:1px solid var(--line); border-radius:5px 24px 5px 24px; background:linear-gradient(135deg,rgba(249,250,255,.76),rgba(225,230,248,.56)); box-shadow:12px 16px 32px rgba(72,81,135,.13),inset 0 1px 0 rgba(255,255,255,.76); backdrop-filter:blur(15px) saturate(112%); }
+      .eyebrow { margin:0 0 10px; color:var(--violet); font:11px "DM Mono", monospace; letter-spacing:.14em; }
+      .hero h1 { margin:0; font-size:38px; }
+      .hero p:last-child { margin:10px 0 0; color:#69719a; }
+      .grid { column-count:3; column-gap:12px; }
+      .card { position:relative; break-inside:avoid; margin:0 0 12px; }
+      .card img { display:block; width:100%; height:auto; border-radius:10px; }
+      .card--three-four img { aspect-ratio:3 / 4; object-fit:cover; }
+      .card figcaption { position:absolute; right:8px; bottom:7px; padding:3px 7px; color:#fff; background:rgba(77,81,139,.66); border:1px solid rgba(255,255,255,.33); border-radius:4px; font:10px "DM Mono", monospace; backdrop-filter:blur(5px); }
+      @media (max-width:700px) {
+        .page { padding:28px 17px; }
+        .hero { padding:24px; }
+        .grid { column-count:2; }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="atmosphere" aria-hidden="true">
+      <i class="glow glow--one"></i><i class="glow glow--two"></i>
+      <i class="star" style="--x:8%;--y:13%;--size:16px;--duration:5s;--delay:-2s">★</i>
+      <i class="star" style="--x:21%;--y:71%;--size:11px;--duration:4.4s;--delay:-1s">★</i>
+      <i class="star" style="--x:44%;--y:20%;--size:13px;--duration:6s;--delay:-4s">★</i>
+      <i class="star" style="--x:64%;--y:83%;--size:17px;--duration:5.7s;--delay:-3s">★</i>
+      <i class="star" style="--x:88%;--y:34%;--size:10px;--duration:4.7s;--delay:-2.5s">★</i>
+      <i class="star" style="--x:94%;--y:76%;--size:14px;--duration:5.3s;--delay:-4.5s">★</i>
+    </div>
+    <main class="page">
+      <a class="back" href="index.html">← 返回履歷</a>
+      <header class="hero">
+        <p class="eyebrow">HANDMADE COLLECTION</p>
+        <h1>蠟燭作品</h1>
+        <p>KCCA Aroma Candle Master · 手作蠟燭與香氛創作</p>
+      </header>
+      <div class="grid">
+        <figure class="card card--three-four"><img src="assets/candles/candle-01.jpg" alt="手作蠟燭作品" /><figcaption>01</figcaption></figure>
+        <figure class="card"><img src="assets/candles/candle-02.jpg" alt="手作蠟燭作品" /><figcaption>02</figcaption></figure>
+        <figure class="card"><img src="assets/candles/candle-03.jpg" alt="手作蠟燭作品" /><figcaption>03</figcaption></figure>
+        <figure class="card card--three-four"><img src="assets/candles/candle-04.jpg" alt="手作蠟燭作品" /><figcaption>04</figcaption></figure>
+        <figure class="card"><img src="assets/candles/candle-05.jpg" alt="手作蠟燭作品" /><figcaption>05</figcaption></figure>
+        <figure class="card"><img src="assets/candles/candle-06.jpg" alt="手作蠟燭作品" /><figcaption>06</figcaption></figure>
+        <figure class="card"><img src="assets/candles/candle-07.jpg" alt="手作蠟燭作品" /><figcaption>07</figcaption></figure>
+        <figure class="card"><img src="assets/candles/candle-08.jpg" alt="手作蠟燭作品" /><figcaption>08</figcaption></figure>
+        <figure class="card"><img src="assets/candles/candle-09.jpg" alt="手作蠟燭作品" /><figcaption>09</figcaption></figure>
+        <figure class="card"><img src="assets/candles/candle-10.jpg" alt="手作蠟燭作品" /><figcaption>10</figcaption></figure>
+        <figure class="card"><img src="assets/candles/candle-11.jpg" alt="手作蠟燭作品" /><figcaption>11</figcaption></figure>
+        <figure class="card"><img src="assets/candles/candle-12.jpg" alt="手作蠟燭作品" /><figcaption>12</figcaption></figure>
+        <figure class="card"><img src="assets/candles/candle-13.jpg" alt="手作蠟燭作品" /><figcaption>13</figcaption></figure>
+        <figure class="card"><img src="assets/candles/candle-14.jpg" alt="手作蠟燭作品" /><figcaption>14</figcaption></figure>
+      </div>
+    </main>
+  </body>
+</html>
