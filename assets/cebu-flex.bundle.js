@@ -27826,27 +27826,30 @@ void main() {
     subtitle: "IMS Academy Cebu",
     aspect
   }));
-  (0, import_client.createRoot)(document.querySelector("#cebu-carousel")).render(
-    /* @__PURE__ */ import_react2.default.createElement(
-      FlexCarousel_default,
-      {
-        items,
-        preset: "ribbon",
-        intro: "spin",
-        cardHeight: 0.57,
-        gap: 12,
-        squeeze: 0.2,
-        focusOnClick: true,
-        captions: true,
-        lensWidth: 0.8,
-        lensHeight: 0.8,
-        tilt: 0,
-        reach: 0.34,
-        curl: "rise",
-        dispersion: 0.4
-      }
-    )
-  );
+  if (window.location.protocol !== "file:") {
+    document.documentElement.dataset.flexCarousel = "true";
+    (0, import_client.createRoot)(document.querySelector("#cebu-carousel")).render(
+      /* @__PURE__ */ import_react2.default.createElement(
+        FlexCarousel_default,
+        {
+          items,
+          preset: "ribbon",
+          intro: "spin",
+          cardHeight: 0.57,
+          gap: 12,
+          squeeze: 0.2,
+          focusOnClick: true,
+          captions: true,
+          lensWidth: 0.8,
+          lensHeight: 0.8,
+          tilt: 0,
+          reach: 0.34,
+          curl: "rise",
+          dispersion: 0.4
+        }
+      )
+    );
+  }
 })();
 /*! Bundled license information:
 

@@ -11,21 +11,27 @@ const items = aspects.map((aspect, index) => ({
   aspect
 }));
 
-createRoot(document.querySelector('#cebu-carousel')).render(
-  <FlexCarousel
-    items={items}
-    preset="ribbon"
-    intro="spin"
-    cardHeight={0.57}
-    gap={12}
-    squeeze={0.2}
-    focusOnClick
-    captions
-    lensWidth={0.8}
-    lensHeight={0.8}
-    tilt={0}
-    reach={0.34}
-    curl="rise"
-    dispersion={0.4}
-  />
-);
+// The OGL canvas needs WebGL2. Use the React Bits component on the deployed
+// HTTPS site, while direct file:// previews intentionally use the HTML gallery.
+if (window.location.protocol !== 'file:') {
+  document.documentElement.dataset.flexCarousel = 'true';
+
+  createRoot(document.querySelector('#cebu-carousel')).render(
+    <FlexCarousel
+      items={items}
+      preset="ribbon"
+      intro="spin"
+      cardHeight={0.57}
+      gap={12}
+      squeeze={0.2}
+      focusOnClick
+      captions
+      lensWidth={0.8}
+      lensHeight={0.8}
+      tilt={0}
+      reach={0.34}
+      curl="rise"
+      dispersion={0.4}
+    />
+  );
+}

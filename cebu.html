@@ -28,7 +28,9 @@
       .cebu-carousel-wrap { width:100%; height:560px; position:relative; margin-top:8px; }
       /* Keep the photo story visible in every browser, including file:// previews
          that cannot initialise WebGL. */
-      #cebu-carousel { display:none; }
+      #cebu-carousel { width:100%; height:100%; }
+      html[data-flex-carousel] .cebu-carousel-wrap { display:block !important; }
+      html[data-flex-carousel] .cebu-gallery { display:none; }
       .cebu-gallery { display:grid; grid-template-columns:repeat(12,1fr); gap:14px; margin-top:8px; }
       .cebu-gallery figure { display:flex; flex-direction:column; min-width:0; margin:0; overflow:hidden; border:1px solid rgba(255,255,255,.72); border-radius:18px; background:rgba(238,242,255,.44); box-shadow:0 14px 28px rgba(72,81,135,.12), inset 0 1px 0 rgba(255,255,255,.7); backdrop-filter:blur(10px); transition:transform .28s ease, box-shadow .28s ease; }
       .cebu-gallery figure:nth-child(1), .cebu-gallery figure:nth-child(8) { grid-column:span 4; }
