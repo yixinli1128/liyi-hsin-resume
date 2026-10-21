@@ -20,6 +20,10 @@ class DriftWall {
     return 1 + this.options.variance * pseudo;
   }
 
+  itemHeight(item) {
+    return this.options.tileWidth / (item.aspect || (this.options.tileWidth / this.options.tileHeight));
+  }
+
   render() {
     const o = this.options;
     Object.assign(this.root.style, {
@@ -34,7 +38,7 @@ class DriftWall {
     o.items.forEach((item, index) => columns[index % o.columns].push(item));
     const height = this.root.clientHeight || 600;
     columns.forEach((items, columnIndex) => {
-      const copyHeight = Math.max(o.tileHeight + o.gap, items.length * (o.tileHeight + o.gap));
+      const copyHeight = Math.max(o.tileHeight + o.gap, items.reduce((total, item) => total + this.itemHeight(item) + o.gap, 0));
       const copies = Math.max(2, Math.ceil((height * 1.6) / copyHeight) + 1);
       const column = document.createElement('div');
       column.className = 'drift-wall__col';
@@ -57,6 +61,7 @@ class DriftWall {
     tile.className = 'drift-wall__tile';
     tile.tabIndex = 0;
     tile.dataset.column = column;
+    tile.style.setProperty('--dw-current-h', `${this.itemHeight(item)}px`);
     tile.setAttribute('aria-label', item.title);
     const inner = document.createElement('span');
     inner.className = 'drift-wall__inner';

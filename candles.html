@@ -56,9 +56,10 @@
   </body>
   <script>
     window.addEventListener('DOMContentLoaded', () => {
-      const items = Array.from({ length: 14 }, (_, index) => ({
+      const items = Array.from({ length: 24 }, (_, index) => ({
         image: `assets/candles/candle-${String(index + 1).padStart(2, '0')}.jpg`,
-        title: `手作蠟燭作品 ${String(index + 1).padStart(2, '0')}`
+        title: `手作蠟燭作品 ${String(index + 1).padStart(2, '0')}`,
+        aspect: index < 7 ? 900 / 1600 : 1
       }));
       new DriftWall(document.querySelector('#candle-wall'), {
         items, columns: 5, tileWidth: 200, tileHeight: 140, gap: 16,
